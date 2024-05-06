@@ -14,12 +14,16 @@ def table_to_linkage_map(file, parent1_row_index=0, parent1_col_index=0, parent2
 
     Parameters
     ----------
-    file : TYPE
-        DESCRIPTION.
-    parent1_row_index : TYPE, optional
+    file : String
+        A string that is the title of a tab deliminted text file containing the genotype call across all samples for every marker.
+        The genotype file is very simple with the first column being the genotype IDs and every subsequent column being their genotype calls
+        at every marker. Each marker is its own separate column. The genotypes can be coded however is preferred.
+    parent1_row_index : Integer, optional
+        Integer indicating the row index for parent 1's genotype call. The default is 0.
+    parent1_col_index : Integer, optional
         DESCRIPTION. The default is 0.
-    parent1_col_index : TYPE, optional
-        DESCRIPTION. The default is 0 parent2_row_index=1.
+    parent2_row_index : TYPE, optional
+        DESCRIPTION. The default is 1.
     parent2_col_index : TYPE, optional
         DESCRIPTION. The default is 0.
     f1_row_index : TYPE, optional
@@ -31,7 +35,8 @@ def table_to_linkage_map(file, parent1_row_index=0, parent1_col_index=0, parent2
 
     Returns
     -------
-    None.
+    linkage_map : TYPE
+        DESCRIPTION.
 
     '''
     
@@ -70,7 +75,7 @@ def table_to_linkage_map(file, parent1_row_index=0, parent1_col_index=0, parent2
     return linkage_map
 
 
-# testing out the function with default parameters       
+### testing out the function with default parameters       
 lm= table_to_linkage_map('f2_hapmap_diploid_tp.txt')
 
 lm.to_csv('converted_map2.csv', index = False)
