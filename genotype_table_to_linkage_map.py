@@ -21,22 +21,22 @@ def table_to_linkage_map(file, parent1_row_index=0, parent1_col_index=0, parent2
     parent1_row_index : Integer, optional
         Integer indicating the row index for parent 1's genotype call. The default is 0.
     parent1_col_index : Integer, optional
-        DESCRIPTION. The default is 0.
-    parent2_row_index : TYPE, optional
-        DESCRIPTION. The default is 1.
-    parent2_col_index : TYPE, optional
-        DESCRIPTION. The default is 0.
-    f1_row_index : TYPE, optional
-        DESCRIPTION. The default is 2.
-    f1_col_index : TYPE, optional
-        DESCRIPTION. The default is 0.
-    id_col : TYPE, optional
-        DESCRIPTION. The default is 'ID'.
+        Integer indicating the column index for parent 1's genotype call. The default is 0.
+    parent2_row_index : Integer, optional
+        Integer indicating the row index for parent 2's genotype call. The default is 1.
+    parent2_col_index : Integer, optional
+        Integer indicating the column index for parent 2's genotype call. The default is 0.
+    f1_row_index : Integer, optional
+        Integer indicating the row index for the F1's genotype call. The default is 2.
+    f1_col_index : Integer, optional
+        Integer indicating the column index for the F1's genotype call. The default is 0.
+    id_col : String, optional
+        String indicating the name of the column that contains the genotype IDs. The default is 'ID'.
 
     Returns
     -------
-    linkage_map : TYPE
-        DESCRIPTION.
+    linkage_map : pandas DataFrame
+        A tabular pandas DataFrame type object that contains the converted genotypes in A, H, and B formats.
 
     '''
     
