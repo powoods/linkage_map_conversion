@@ -10,8 +10,13 @@ Created on Mon May  6 10:54:03 2024
 
 def hapmap_to_linkage_map_v2(hapmap, parent1_row_index=0, parent1_col_index=0, parent2_row_index=1,parent2_col_index=0, f1_row_index=2,f1_col_index=0):
     '''
+    Function Description : 
+    --------------------
+        A function that takes in a TASSEL5 formatted HapMap genotype file and converts it to an F2 linkage map (A, H, B) formatted file that can be input
+        into software such as JoinMap for calculating genetic distances. All arguments other than 'hapmap' have default values that assume the order of
+        samples in the TASSEL5 formatted HapMap is as follows: parent_1, parent_2, F1, F2_1, F2_2, F2_3,F2_4, etc. If the HapMap does not explicitly have
+        parent 1, parent 2 and the F1 in this specific order, the respective row and column indexes will need to be changed to the correct values.
     
-
     Parameters
     ----------
     hapmap : String
