@@ -1,23 +1,22 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon May  6 08:54:03 2024
+Created on Mon May  6 10:54:03 2024
 
 @author: patrick.woods
 """
 
-#v1
+#v2
 
-def table_to_linkage_map(file, parent1_row_index=0, parent1_col_index=0, parent2_row_index=1,parent2_col_index=0, f1_row_index=2,f1_col_index=0, id_col = 'ID'):
+def table_to_linkage_map_v2(hapmap, parent1_row_index=0, parent1_col_index=0, parent2_row_index=1,parent2_col_index=0, f1_row_index=2,f1_col_index=0):
     '''
     
 
     Parameters
     ----------
-    file : String
-        A string that is the title of a tab deliminted text file containing the genotype call across all samples for every marker.
-        The genotype file is very simple with the first column being the genotype IDs and every subsequent column being their genotype calls
-        at every marker. Each marker is its own separate column. The genotypes can be coded however is preferred.
+    hapmap : String
+        A string that is the title of a tab deliminted 'hapmap' text file produced using TASSEL5 that contains the genotype call across all samples for every marker.
+        The genotypes can be coded however is preferred.
     parent1_row_index : Integer, optional
         Integer indicating the row index for parent 1's genotype call. The default is 0.
     parent1_col_index : Integer, optional
@@ -30,8 +29,6 @@ def table_to_linkage_map(file, parent1_row_index=0, parent1_col_index=0, parent2
         Integer indicating the row index for the F1's genotype call. The default is 2.
     f1_col_index : Integer, optional
         Integer indicating the column index for the F1's genotype call. The default is 0.
-    id_col : String, optional
-        String indicating the name of the column that contains the genotype IDs. The default is 'ID'.
 
     Returns
     -------
@@ -44,10 +41,14 @@ def table_to_linkage_map(file, parent1_row_index=0, parent1_col_index=0, parent2
     import pandas as pd
     import numpy as np
     
-    map = pd.read_table(file)
+    map = pd.read_table(hapmap, index_col=0)
+    map = map.drop(map.columns[[0,1,2,3,4,5,6,7,8,9]], axis=1)
+    
+    map = map.transpose()
+    map = map.reset_index()
     
     linkage_map = pd.DataFrame() #creating an empty data frame to store the linkage map converted genotypes in
-    linkage_map['ID'] = map[id_col]
+    linkage_map['ID'] = map['index']
     
     for f in map.iloc[:,1:]: #iterating over all column after the first column which containins sample IDs.
         
@@ -76,9 +77,11 @@ def table_to_linkage_map(file, parent1_row_index=0, parent1_col_index=0, parent2
 
 
 ### testing out the function with default parameters       
-lm= table_to_linkage_map('f2_hapmap_diploid_tp.txt')
+lm= table_to_linkage_map_v2('f2_hapmap_diploid.hmp.txt')
 
-lm.to_csv('converted_map2.csv', index = False)
+lm.to_csv('converted_map3.csv', index = False)
+
+
 
 
 
