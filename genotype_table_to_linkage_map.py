@@ -8,7 +8,7 @@ Created on Mon May  6 10:54:03 2024
 
 #v2
 
-def table_to_linkage_map_v2(hapmap, parent1_row_index=0, parent1_col_index=0, parent2_row_index=1,parent2_col_index=0, f1_row_index=2,f1_col_index=0):
+def hapmap_to_linkage_map_v2(hapmap, parent1_row_index=0, parent1_col_index=0, parent2_row_index=1,parent2_col_index=0, f1_row_index=2,f1_col_index=0):
     '''
     
 
