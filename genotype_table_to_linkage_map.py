@@ -18,17 +18,17 @@ def hapmap_to_linkage_map_v2(hapmap, parent1_row_index=0, parent1_col_index=0, p
         A string that is the title of a tab deliminted 'hapmap' text file produced using TASSEL5 that contains the genotype call across all samples for every marker.
         The genotypes can be coded however is preferred.
     parent1_row_index : Integer, optional
-        Integer indicating the row index for parent 1's genotype call. The default is 0.
+        Integer indicating the row index for parent 1's genotype call for each marker. The default is 0.
     parent1_col_index : Integer, optional
-        Integer indicating the column index for parent 1's genotype call. The default is 0.
+        Integer indicating the column index for parent 1's first genotype call for each marker. The default is 0.
     parent2_row_index : Integer, optional
-        Integer indicating the row index for parent 2's genotype call. The default is 1.
+        Integer indicating the row index for parent 2's first genotype call for each marker. The default is 1.
     parent2_col_index : Integer, optional
-        Integer indicating the column index for parent 2's genotype call. The default is 0.
+        Integer indicating the column index for parent 2's first genotype call for each marker. The default is 0.
     f1_row_index : Integer, optional
-        Integer indicating the row index for the F1's genotype call. The default is 2.
+        Integer indicating the row index for the F1's first genotype call for each marker. The default is 2.
     f1_col_index : Integer, optional
-        Integer indicating the column index for the F1's genotype call. The default is 0.
+        Integer indicating the column index for the F1's first genotype call for each marker. The default is 0.
 
     Returns
     -------
